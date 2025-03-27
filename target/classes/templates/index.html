@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/homepage/style.css">
         <link rel="shortcut icon" href="/homepage/logo.ico" type="image/x-icon">
         <title th:text="${pageTitle}"></title>
@@ -130,7 +131,7 @@
             <div class="graph bord">
                 <header style="font-size: 17px; font-weight: bold; color: white; font-family: 'Helvetica', sans-serif; margin-bottom: 10px; margin-top: 10px">Time</header>
 
-                <div class="inline" style="padding-top: 15px; padding-bottom: 15px; padding-left: 15px; display: flex; background-color:rgb(50, 53, 57); border: 1px solid rgb(41, 46, 51); border-radius: 12px;">
+                <div class="inline" >
                     <div class="clock block" >
                         <div class="hour">
                             <div class="hours"></div>
@@ -146,7 +147,7 @@
                     <div class="time-border block" style="margin-left: 10px;margin-top: 10px; float: right; ">
                         <div style="font-size: 100px;  color: white; font-family: 'Helvetica', sans-serif;" id="id_clock"></div>
                         <script>digitalClock();</script>
-                        <time style="margin-left: 170px; color: white; font-family: 'Helvetica', sans-serif;" datetime="2025-02-25T15:23:50Z"><span style="font-size: 40px; color: white; font-family: 'Helvetica', sans-serif;" id="currentDate"></span></time>
+                        <time class="tm" style="margin-left: 170px; color: white; font-family: 'Helvetica', sans-serif;" datetime="2025-02-25T15:23:50Z"><span style="font-size: 40px; color: white; font-family: 'Helvetica', sans-serif;" id="currentDate"></span></time>
                     </div>
                 </div>
 

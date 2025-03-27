@@ -1,2 +1,5 @@
-com/slepan/slepanshop/HomeController.class
-com/slepan/slepanshop/SlepanshopApplication.class
+com\slepan\slepanshop\ERateUkr.class
+com\slepan\slepanshop\SlepanshopApplication.class
+com\slepan\slepanshop\Addons.class
+com\slepan\slepanshop\HomeController.class
+com\slepan\slepanshop\CurrencyController.class

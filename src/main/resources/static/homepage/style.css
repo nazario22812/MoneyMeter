@@ -137,6 +137,16 @@ a{
     line-height: 21px;
     border-left: 3px solid rgb(5, 187, 154);
 }
+
+.inline{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    display: flex;
+    background-color:rgb(50, 53, 57);
+    border: 1px solid rgb(41, 46, 51);
+    border-radius: 12px;
+}
 .clock{
     width: 340px;
     height: 340px;
@@ -232,5 +242,250 @@ a{
     }
 }
 
+@media (max-width: 320px) {
+    .inline{
+        padding-left: 35px;
+    }
+    .menu {
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 20px;
+    }
 
+    .middle {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
+    .bord {
+        width: 100%;
+    }
+
+    .course-currency {
+        width: 100%;
+        padding-right: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .course-currency-namee,
+    .course-buy,
+    .course-sell {
+        font-size: 18px;
+    }
+
+    .course-buy,
+    .course-sell {
+        width: 50%;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .clock {
+        display: none;
+    }
+    #id_clock{
+        font-size: 60px !important;
+        text-align: center !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+    .tm{
+        margin-left: 30px !important;
+        text-align: center;
+        overflow: hidden;
+    }
+    .sell{
+        padding-right: 45px !important;
+    }
+    .price{
+        padding-right: 35px !important;
+    }
+    .converter{
+        width: 90% !important;
+    }
+    button{
+        font-size: 12px !important;
+        margin-top: 85px !important;
+    }
+    .select-cryptocurrency-namee{
+        display: none;
+    }
+    .select-cryptocurrency-namee:active{
+        display: none;
+    }
+    .crypto-item{
+        width: 75px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 767px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 20px;
+    }
+
+    .middle {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .bord {
+        width: 100%;
+    }
+
+    .course-currency {
+        width: 100%;
+        padding-right: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .course-currency-namee,
+    .course-buy,
+    .course-sell {
+        font-size: 18px;
+    }
+
+    .course-buy,
+    .course-sell {
+        width: 50%;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .clock {
+        display: none;
+    }
+    #id_clock{
+        font-size: 60px !important;
+        text-align: center !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+    .tm{
+        margin-left: 30px !important;
+        text-align: center;
+        overflow: hidden;
+    }
+    .inline{
+        padding-left: 55px;
+    }
+    .sell{
+        padding-right: 45px !important;
+    }
+    .price{
+        padding-right: 35px !important;
+    }
+    .converter{
+        width: 90% !important;
+    }
+    button{
+        font-size: 16px !important;
+        margin-top: 85px !important;
+    }
+    .select-cryptocurrency-namee{
+        display: none;
+    }
+    .select-cryptocurrency-namee:active{
+        display: none;
+    }
+    .crypto-item{
+        width: 75px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .course-currency-namee,
+    .course-buy,
+    .course-sell {
+        font-size: 18px;
+    }
+    .clock {
+        display: none;
+    }
+
+    #id_clock{
+        font-size: 60px !important;
+        text-align: center !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .tm{
+        margin-left: 30px !important;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .inline{
+        padding-left: 55px;
+    }
+    .converter{
+        width: 90% !important;
+    }
+    .select-cryptocurrency-namee{
+        display: none;
+    }
+    .select-cryptocurrency-namee:active{
+        display: none;
+    }
+    .crypto-item{
+        width: 75px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px){
+    .clock {
+        display: none;
+    }
+    .crypto-item{
+        width: 150px;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px){
+    #id_clock{
+        font-size: 60px !important;
+        text-align: center !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .tm{
+        margin-left: 30px !important;
+        text-align: center;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 2559px){
+    #id_clock{
+        text-align: center !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .tm{
+        margin-left: 180px !important;
+        text-align: right;
+        overflow: hidden;
+    }
+    .time-border{
+        padding-left: 65px;
+
+    }
+}
+
+@media (min-width: 2560px) {
+    .time-border{
+        padding-left: 200px;
+
+    }
+    .tm{
+        margin-left: 180px !important;
+        text-align: right;
+        overflow: hidden;
+    }
+}
