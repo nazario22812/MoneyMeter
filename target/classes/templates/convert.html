@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/homepage/style.css">
+    <link rel="stylesheet" href="/homepage/conv.css">
+    <link rel="shortcut icon" href="/homepage/logo.ico" type="image/x-icon">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo">
+            <a th:href="@{/}"><img class="logo-photo" src="/homepage/logo.png" width="160" height="65"></a>
+        </div>
+        <div class="menu"  style="display: flex; gap: 20px;">
+            <div class="conventor menu1">
+                <a th:href="@{/currency_convert}"><p class="conventor-text"><img src="/homepage/convert.png" height="20" width="20"></img> convert</p></a>
+            </div>
+            <div class="crypto menu1">
+                <a th:href="@{/cryptocurrency}"><p class="crypto-text"><img src="/homepage/bitcoin.png" height="20" width="20"></img> crypto</p></a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="miidle2">
+        <div class="conventor-bord">
+            <div class="converter">
+                <h1 style="font-size: 35px; font-weight: bold; color: white; font-family: 'Helvetica', sans-serif;">Currency Converter</h1>
+                <div class="converter-container" >
+                    <div class="part1" >
+                        <select id="fromCurrency">
+                            <option value="USD">USD - US Dollar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="BYN">BYN - Belarusian ruble</option>
+                            <option value="GBP">GBP - Pound sterling</option>
+                            <option value="CHF">CHF - Swiss Franc</option>
+                            <option value="CAD">CAD - Canadian Dollar</option>
+                            <option value="AUD">AUD - Australian dollar</option>
+                            <option value="PLN">PLN - Polish złoty</option>
+                            <option value="HUF">HUF - Hungarian forint</option>
+                            <option value="CZK">CZK - Czech koruna</option>
+                            <option value="JPY">JPY - Japanese yen</option>
+                            <option value="CNY">CNY - Chinese yuan renminbi</option>
+                            <option value="UAH">UAH - Ukrainian Hryvnia</option>
+                        </select>
+                        <input type="number" id="amount" placeholder="Enter amount" />
+                    </div>
+
+
+                    <div class="part2">
+                        <select id="toCurrency">
+                            <option value="UAH">UAH - Ukrainian Hryvnia</option>
+                            <option value="USD">USD - US Dollar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="BYN">BYN - Belarusian ruble</option>
+                            <option value="GBP">GBP - Pound sterling</option>
+                            <option value="CHF">CHF - Swiss Franc</option>
+                            <option value="CAD">CAD - Canadian Dollar</option>
+                            <option value="AUD">AUD - Australian dollar</option>
+                            <option value="PLN">PLN - Polish złoty</option>
+                            <option value="HUF">HUF - Hungarian forint</option>
+                            <option value="CZK">CZK - Czech koruna</option>
+                            <option value="JPY">JPY - Japanese yen</option>
+                            <option value="CNY">CNY - Chinese yuan renminbi</option>
+                        </select>
+                        <input type="text" id="wynik" placeholder="Result" readonly/>
+
+                    </div>
+                </div>
+                <button onclick="convertCurrency()">Convert</button>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h5 class="footer-description">
+            <p>Currency exchange information services.</p>
+            <p>Financial advice, reliability and confidentiality.</p>
+            <p>© 2014-2024 Carte Blanche Sp. z o.o.</p>
+            <p>All rights reserved.</p>
+        </h5>
+    </footer>
+
+    <script src="/homepage/js/conv.js"></script>
+</body>
+</html>

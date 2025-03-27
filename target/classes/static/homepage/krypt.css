@@ -1,0 +1,57 @@
+.select-cryptocurrency{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-right: 100px;
+    width: 40%;
+}
+
+.crypta{
+    margin-left: 15%;
+}
+
+.select-cryptocurrency-namee{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 21px;
+    color: white;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.select-cryptocurrency-namee:hover{
+    cursor: pointer;
+}
+
+.crypto-select{
+    width: 35%;
+    text-align: right;
+    padding-left: 0;
+    font-weight: bold;
+    font-size: 27px;
+    color: white;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.rozdl{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.d{
+    flex: 1;
+}
+
+.cryptorows{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.crypto-item:active{
+    border: 1px solid rgb(5, 187, 154);
+    border-radius: 12px;
+    background-color: #6d7a88;
+}
