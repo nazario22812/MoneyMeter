@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/homepage/krypt.css">
+    <link rel="stylesheet" href="/homepage/style.css">
+    <link rel="shortcut icon" href="/homepage/logo.ico" type="image/x-icon">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo">
+            <a th:href="@{/}"><img class="logo-photo" src="/homepage/logo.png" width="160" height="65"></a>
+        </div>
+        <div class="menu"  style="display: flex; gap: 20px;">
+            <div class="conventor menu1">
+                <a th:href="@{/currency_convert}"><p class="conventor-text"><img src="/homepage/convert.png" height="20" width="20"></img> convert</p></a>
+            </div>
+            <div class="crypto menu1">
+                <a th:href="@{/cryptocurrency}"><p class="crypto-text"><img src="/homepage/bitcoin.png" height="20" width="20"></img> crypto</p></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="middle" style="display: flex; justify-content: center;  align-items: center;gap: 20px;">
+        <div class="course bord">
+            <div class="course-head" style="display: flex; justify-content: space-between; align-items: center;">
+                <header style="font-size: 17px; font-weight: bold; color: white; font-family: 'Helvetica', sans-serif;">Exchange Rate</header>
+
+            </div>
+            <div class="course-caption" style="display: flex; justify-content: center;  align-items: center;gap: 20px;">
+                <div style="font-weight: bold;font-size: 14px; color: rgb(95, 107, 119); font-family: 'Helvetica', sans-serif; width: 40%; text-align: left;" class="currency">Currency</div>
+                <div style="font-weight: bold;font-size: 14px; color: rgb(95, 107, 119); font-family: 'Helvetica', sans-serif; width: 30%; text-align: right; padding-right: 100px;" class="price">Price</div>
+            </div>
+            <div class="course-rows">
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png" width="90" height="50"></img>
+                        <div class="course-currency-namee">USD</div>
+                    </div>
+                    <div class="course-buy"><span id="usd-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,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" width="90" height="50"></img>
+                        <div class="course-currency-namee">EUR</div>
+                    </div>
+                    <div class="course-buy"><span id="eur-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,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" width="90" height="50"></img>
+                        <div class="course-currency-namee">GBP</div>
+                    </div>
+                    <div class="course-buy"><span id="gbp-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATUAAACjCAMAAADciXncAAAATlBMVEX3Jxf////4Kh33CwD3u7r2vrv99PP4Kh72NDD3t7f3AAD10tH2zs32tLP0WVf2DQD3IRP0RUD4ubX0n5z65OL1ycf++vr2MCr1h4P3LSAFjoMeAAACHElEQVR4nO3d3W4SURhA0QpTEWodan99/xf1QlMvxJl21wxTXSuBEMgczuxw+eVwccGrbc69gXdJtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtWJN1Y43X6bcHM+9wWdrqjZefpjydTz3Bp+tqdp2mKy2V+0U1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1YqZav/l1N921mE/We36MLfAuF3oXharNt5ezhnuJqvdDbMr3C70c1ys2uFqMsnfcXVY5mb+rWqfVVNNtUa1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK14nD/cdbDZJKH+QXuFxrFWqza8fHTnN30WX/DbnaFx4UOUVzTrORowjQwYVqYZi5UK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrzK8VM/+LPKh2yvg0XP/Z/km1k8bJUyfXE21d1d4N1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtUK1QrVCtWKzcVms9v8ePx6+v3F5vTnL7v2DW+/6Htfd+1bNv9z3W/fAW61MQBs6+I3AAAAAElFTkSuQmCC" width="90" height="50"></img>
+                        <div class="course-currency-namee">CHF</div>
+                    </div>
+                    <div class="course-buy"><span id="chf-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,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" width="90" height="50"></img>
+                        <div class="course-currency-namee">CAD</div>
+                    </div>
+                    <div class="course-buy"><span id="cad-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,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" width="90" height="50"></img>
+                        <div class="course-currency-namee">AUD</div>
+                    </div>
+                    <div class="course-buy"><span id="aud-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARwAAACxCAMAAAAh3/JWAAAADFBMVEX////cFDzup6/bAC47xqeuAAAA0UlEQVR4nO3QMQHAMAzAsLTjz3kI4qO3BEEzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPLms5mM1h5WcICfICXKCnCAnyAlygpwgJ8gJcoKcICfICXKCnCAnyAlygpwgJ8gJcoKcICfICXKCnCAnyAlygpwgJ8gJcoKcICfICXKCnCAnyAlygpwgJ8gJcoKcICfICXKCnCAnyAlygpwgJ8gJcoKcICfICXKCnCAnyAlygpwgJ8gJcoKcICfICXKCnCAnyAlygpwgJ8gJcoKcICf8zMtmEUHJBe8AAAAASUVORK5CYII=" width="90" height="50"></img>
+                        <div class="course-currency-namee">PLN</div>
+                    </div>
+                    <div class="course-buy"><span id="pln-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ19VG4UoKZRqaixq8mAiHvsLltgm3AMWJxtQ&s" width="90" height="50"></img>
+                        <div class="course-currency-namee">HUF</div>
+                    </div>
+                    <div class="course-buy"><span id="huf-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAllBMVEX////XFBoRRX7VAADsp6gARoDZExgAP3veEBAMQ30APHkANHUAMXQARX4AR4PcERP3+fsAOnnq7vNSO2rOFh9thafAythngKSjscbBHCuLLlBAPnDGGiebKUbgDglVOmmiJ0JdOWW6xdRLa5aOLU5EPW/MFyF2jKxeeZ/u8fVEZpOersM9YY/Nl6A1QHOFL1OlJj9kN2ML4DL9AAAEfElEQVR4nO2Yi1rTQBBGM6uxUGgU8QaooOJdEd//5dwwUNMkbXPZ3bnteYL0fP93Mmnxtci0WbpX1I/ADnd4/JL6GbjhnFse5qls4J3UU3lG/RyccHfkqjRBJ3kqTdwDy0Weyj1rJ3kqa1yDXBWk6SRPBXGb5KoUHSd5KkXXSa5KnxM/lde2p9LjxPwXUK8T41Xpd2J7KtucWK7KVieGp7LDidmq7HJi9azd7cRmVfY4MVmVvU4MTmW/Ez+Vpa2pDHFibSqDnBirykAnpqYy1Imlqgx34pyVqYxx4qvykfp5UzDKia/KNwNTGeek/gLSP5WxTiy8gEY7MTCVCU7UV2WKE+1TmeZE91QmOvFTOVE7lclOFJ+1M5yorcocJ1pvlVlOlFZlppO6Kt+pf0NoZjtRWJX5TvTdKgGc1H/BqZpKECe+KpqmEsiJqqqEclJXRcsLKJgT5xZabpWATnxVPj2n/j0hCOrELY7eUP+gAIR14tyRgqmEduKrIn4qwZ0omEoEJ+KrEsOJ9KnEcSK7KpGc1FMRe9ZGc+IWx1KnEs+JO5RalYhOxFYlqhOhL6DITkTeKrGdSKxKdCcCq5LAia/KD1FTSeJEWFXSOJH1AkrlRNJUkjkRNJWETsRMJaUTKVNJ60TGx3JiJyLO2tROJJy16Z3wrwqFE+5VIXHCvCo0TnhXhcoJ549lOid8q0LohG1VKJ1w/QKideKn8ovfVIid1FP5Se2gDbWSeircXkDURmq4TYXaxx3MqkKt457Fye/HXGDipLo5e8QGFk7K8s/BE2ADByfVxdkBtYcm9E5WvEYCDJz4krAaCZA7Kcvz97xGAtROuJUEoXSyKs+ZlQQhdFLdvGU4EiB0wuwmaULlhOHrZg2Nk1XFdiRA5KS6YFoShMAJ45Ig6Z3wvEmapHZSMr1JmiR2wrwkSFInEkYCaZ3wLwmSzgnLT+BekjkRURIkkRMhJUHSOBE0EkjjRE5JkAROqs+SRgIJnIgqCRLbiaySIHGdlOW1qJIgUZ2IKwkS0UlZXUsrCRLPicSSILGc+JLIHAlEcyJ3JBDJieSRQBwnQl83a8I7ET4SiOBEdEmQwE5kHq4twjqRXhIkpJNy9U54SZCATqrTL0+pf04QgjnxI5FfEiSUk+r0hY6RQCgnZamjJEgQJ5pGAkGcKCoJMt+JmtfNmrlOfEl0jQRmO1FWEmSWE3UlQeY40VcSZLoTpSOBGU5UlgSZ6ETLJ3Av05woHglMc6K3JMgEJ9Wl5pHABCfaRwLjneguCTLOiYGRwEgn1aXOw7XFCCeqb5Imw51YKAky1ImNkiADnai/SZoMcqLrb/m9DHFSXYKdkcAQJ5ZKgux1YqokyB4n5erK2EhgnxODI4HdTkyOBHY6sTkS2OHE6khgu5Pqg9GRwDYnfiSWDtcWvU6sHa4tepyUzmxJkK4TyyVB2k4Mv27WFO2RmC4JsuHEfEmQYmMk1kuC/HdSrm4N3yRNilySDsVDSW5zSR4o8kg6FHkkHYo8kg5FHkmH4m8eSZt/yaPZuUlHAycAAAAASUVORK5CYII=" width="90" height="50"></img>
+                        <div class="course-currency-namee">CZK</div>
+                    </div>
+                    <div class="course-buy"><span id="czk-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,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" width="90" height="50"></img>
+                        <div class="course-currency-namee">JPY</div>
+                    </div>
+                    <div class="course-buy"><span id="jpy-price"></span></div>
+                </div>
+                <div class="row">
+                    <div class="course-currency"><img class="country" src="data:image/png;base64,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" width="90" height="50"></img>
+                        <div class="course-currency-namee">CNY</div>
+                    </div>
+                    <div class="course-buy"><span id="cny-price"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="graph bord">
+            <header style="font-size: 17px; font-weight: bold; color: white; font-family: 'Helvetica', sans-serif; margin-bottom: 10px; margin-top: 10px">Select a currency</header>
+
+            <div class="course-rows cryptorows">
+                <div class="rozdl">
+                    <div class="row d">
+                        <div class="crypto-item" data-id="bitcoin">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/bitcoin2.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" data-id="bitcoin">Bitcoin</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d">
+                        <div class="crypto-item" data-id="ethereum">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/ethereum.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Ethereum</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rozdl">
+                    <div class="row d">
+                        <div class="crypto-item" data-id="dogecoin">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/dogecoin.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Dogecoin</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d">
+                        <div class="crypto-item" data-id="tether">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/usdt.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Tether USDt</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rozdl">
+                    <div class="row d">
+                        <div class="crypto-item" data-id="ripple">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/xrp.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >XRP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d">
+                        <div class="crypto-item" data-id="binancecoin">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/binance.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >BNB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rozdl">
+                    <div class="row d">
+                        <div class="crypto-item" data-id="solana">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/solana.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Solana</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d">
+                        <div class="crypto-item" data-id="usd-coin">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/dollar.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee">USDC</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rozdl">
+                    <div class="row d">
+                        <div class="crypto-item" data-id="the-open-network">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/ton.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Toncoin</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d">
+                        <div class="crypto-item" data-id="litecoin">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/litecoin.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Litecoin</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rozdl">
+                    <div class="row d">
+                        <div class="crypto-item" data-id="cardano">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/cardano.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Cardano</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d">
+                        <div class="crypto-item"  data-id="tron">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/trx.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee">TRON</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rozdl">
+                    <div class="row d">
+                        <div class="crypto-item" data-id="chainlink">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/chainlink.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Chainlink</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d">
+                        <div class="crypto-item" data-id="avalanche-2">
+                            <div class="select-cryptocurrency"><img class="crypta" src="/homepage/avalanche.png" width="75" height="75"></img>
+                                <div class="select-cryptocurrency-namee" >Avalanche</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h5 class="footer-description">
+            <p>Currency exchange information services.</p>
+            <p>Financial advice, reliability and confidentiality.</p>
+            <p>© 2014-2024 Carte Blanche Sp. z o.o.</p>
+            <p>All rights reserved.</p>
+        </h5>
+    </footer>
+
+    <script src="/homepage/js/krypta.js"></script>
+</body>
+</html>
